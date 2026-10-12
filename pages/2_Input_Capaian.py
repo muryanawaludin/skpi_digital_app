@@ -96,3 +96,14 @@ else:
         st.metric("Pending", len(achievements[achievements['STATUS'] == 'Pending']))
     with col3:
         st.metric("Approved", len(achievements[achievements['STATUS'] == 'Approved']))
+
+# ============================================================
+# COPYRIGHT Muryan Awaludin
+# ============================================================
+st.markdown("---")
+st.markdown("""
+<div style="text-align: center; color: #7F8C8D; font-size: 0.8rem; padding: 1rem 0;">
+    <p>© 2026 <strong>Muryan Awaludin</strong> | SKPI Digital System v1.0</p>
+    <p>Universitas Dirgantara Marsekal Suryadarma</p>
+</div>
+""", unsafe_allow_html=True)

@@ -1,6 +1,8 @@
 """
 SKPI Digital - Microservices System
 Main Streamlit Application
+
+© 2026 Muryan Awaludin. All Rights Reserved.
 """
 
 import streamlit as st
@@ -8,7 +10,6 @@ import pandas as pd
 import sys
 import os
 
-# Tambahkan path untuk import modul
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from config.settings import APP_TITLE, APP_ICON, UNIVERSITY, FACULTY
@@ -42,29 +43,22 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
     }
-    .metric-card {
-        background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        color: white;
+    .footer-copyright {
         text-align: center;
+        color: #7F8C8D;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #F8F9FA 0%, #E8F4FD 100%);
+        border-radius: 10px;
+        margin-top: 2rem;
+        border-top: 3px solid #3498DB;
     }
-    .metric-value {
-        font-size: 2rem;
-        font-weight: bold;
-    }
-    .metric-label {
-        font-size: 0.9rem;
-        opacity: 0.9;
-    }
-    .stButton>button {
-        background-color: #3498DB;
-        color: white;
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-    }
-    .stButton>button:hover {
-        background-color: #2980B9;
+    .sidebar-copyright {
+        text-align: center;
+        color: #95A5A6;
+        font-size: 0.75rem;
+        padding: 1rem 0;
+        border-top: 1px solid #E0E0E0;
+        margin-top: 1rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -97,12 +91,38 @@ with st.sidebar:
     - Document Service
     - Verification Service
     """)
+    
+    # ============================================================
+    # COPYRIGHT DI SIDEBAR
+    # ============================================================
+    st.markdown("---")
+    st.markdown("""
+    <div class="sidebar-copyright">
+        <p>© 2026 <strong>Muryan Awaludin</strong></p>
+        <p>All Rights Reserved</p>
+        <p><em>SKPI Digital v1.0</em></p>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ============================================================
-# HALAMAN UTAMA
+# HEADER DENGAN COPYRIGHT
 # ============================================================
-st.markdown('<div class="main-header">🎓 SKPI Digital System</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Microservices-Based Academic Service Platform</div>', unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1, 3, 1])
+
+with col1:
+    st.markdown("")
+
+with col2:
+    st.markdown('<div class="main-header">🎓 SKPI Digital System</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sub-header">Microservices-Based Academic Service Platform</div>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown("""
+    <div style="text-align: right; color: #7F8C8D; font-size: 0.7rem; padding-top: 1rem;">
+        <p>© 2026</p>
+        <p><strong>Muryan Awaludin</strong></p>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -114,32 +134,13 @@ st.subheader("📊 Ringkasan Indikator Kinerja Utama")
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    st.metric(
-        label="⏱️ Waktu Proses SKPI",
-        value="↓73.1%",
-        delta="7.8 → 2.1 hari"
-    )
-
+    st.metric(label="⏱️ Waktu Proses SKPI", value="↓73.1%", delta="7.8 → 2.1 hari")
 with col2:
-    st.metric(
-        label="😊 Kepuasan Pengguna",
-        value="4.3/5.0",
-        delta="+1.5 dari baseline"
-    )
-
+    st.metric(label="😊 Kepuasan Pengguna", value="4.3/5.0", delta="+1.5 dari baseline")
 with col3:
-    st.metric(
-        label="⚡ Response Time",
-        value="156 ms",
-        delta="-44 ms dari target"
-    )
-
+    st.metric(label="⚡ Response Time", value="156 ms", delta="-44 ms dari target")
 with col4:
-    st.metric(
-        label="📉 Error Rate",
-        value="0.8%",
-        delta="-7.2% dari baseline"
-    )
+    st.metric(label="📉 Error Rate", value="0.8%", delta="-7.2% dari baseline")
 
 st.markdown("---")
 
@@ -190,12 +191,15 @@ with col2:
 st.markdown("---")
 
 # ============================================================
-# FOOTER
+# FOOTER DENGAN COPYRIGHT
 # ============================================================
 st.markdown("""
-<div style="text-align: center; color: #7F8C8D; padding: 2rem;">
-    <p>© 2026 - Fakultas Ilmu Komputer dan Desain</p>
-    <p>Universitas Dirgantara Marsekal Suryadarma</p>
-    <p><em>Microservices-Based SKPI Digital System v1.0</em></p>
+<div class="footer-copyright">
+    <h4 style="color: #3498DB; margin-bottom: 0.5rem;">🎓 SKPI Digital System</h4>
+    <p style="margin: 0.3rem 0;">Microservices-Based Academic Service Platform</p>
+    <p style="margin: 0.3rem 0;"><strong>© 2026 Muryan Awaludin. All Rights Reserved.</strong></p>
+    <p style="margin: 0.3rem 0; font-size: 0.85rem;">Fakultas Ilmu Komputer dan Desain</p>
+    <p style="margin: 0.3rem 0; font-size: 0.85rem;">Universitas Dirgantara Marsekal Suryadarma</p>
+    <p style="margin: 0.3rem 0; font-size: 0.75rem; color: #95A5A6;">Developed with ❤️ using Streamlit | Version 1.0</p>
 </div>
 """, unsafe_allow_html=True)
