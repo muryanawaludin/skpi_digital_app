@@ -1,0 +1,15 @@
+
+---
+
+## 🔧 LANGKAH 1: PERSIAPAN GIT
+
+### Install Git
+
+**Windows:**
+1. Download Git dari https://git-scm.com/download/win
+2. Install dengan opsi default
+3. Buka **Git Bash** atau **PowerShell**
+
+**Verifikasi instalasi:**
+```bash
+git --version
