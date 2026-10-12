@@ -56,8 +56,14 @@ with col1:
     st.plotly_chart(fig, use_container_width=True)
 
 with col2:
-    # Throughput over time
-    dates = pd.date_range(datetime.now() - timedelta(hours=24), periods=24, freq='H')
+    # ============================================================
+    # PERBAIKAN: freq='h' (huruf kecil) untuk pandas 2.2+
+    # ============================================================
+    dates = pd.date_range(
+        datetime.now() - timedelta(hours=24), 
+        periods=24, 
+        freq='h'  # ← DIUBAH DARI 'H' MENJADI 'h'
+    )
     throughput = np.random.poisson(78, 24)
     
     fig = px.line(
@@ -105,8 +111,8 @@ with col2:
     st.warning("⚠️ Document Service response time slightly elevated")
     st.info("ℹ️ Next maintenance: 2026-07-10 02:00 UTC")
 
-    # ============================================================
-# COPYRIGHT Muryan Awaludin
+# ============================================================
+# COPYRIGHT
 # ============================================================
 st.markdown("---")
 st.markdown("""
